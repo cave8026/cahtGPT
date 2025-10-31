@@ -26,14 +26,14 @@ public class MediRecordDAO extends DBConnPool {
             psmt = con.prepareStatement(sql);
             psmt.setInt(1, petId);
             rs = psmt.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 MediRecordDTO dto = new MediRecordDTO();
                 dto.setRecordId(rs.getInt("record_id"));
                 dto.setMedicine(rs.getString("medicine"));
                 dto.setDosageTime(rs.getTimestamp("dosage_time"));
                 list.add(dto);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally { close(); }
         return list;
@@ -54,7 +54,7 @@ public class MediRecordDAO extends DBConnPool {
             psmt.setString(2, dto.getMedicine());
             psmt.setTimestamp(3, new Timestamp(dto.getDosageTime().getTime()));
             result = psmt.executeUpdate();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally { close(); }
         return result;

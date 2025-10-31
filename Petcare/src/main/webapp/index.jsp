@@ -25,7 +25,7 @@
   </style>
 </head>
 <body>
-  <h1>🐾 반려동물 투약정보 & 비만도 간단 체크</h1>
+  <h1>반려동물 투약정보 & 비만도 간단 체크</h1>
 
   <!-- 💊 투약정보 섹션 -->
   <div class="card">
@@ -34,7 +34,7 @@
         PetDAO dao = new PetDAO();
         List<PetDTO> pets = dao.getPetsByOwner(1); // 테스트용 owner_id = 1 (통합 시 세션에서 가져오세요)
     %>
-    <form action="medilist.jsp" method="get">
+    <form action="medi/medilist.jsp" method="get">
       <div class="row">
         <label for="petId">반려동물 선택: </label>
         <select id="petId" name="petId" required>
@@ -59,8 +59,8 @@
     </form>
     <hr>
     <p>새 기록 추가:
-      <a id="addLink" href="mediadd.jsp?petId=<%= (pets != null && !pets.isEmpty()) ? pets.get(0).getPetId() : 1 %>">
-        mediadd.jsp
+      <a id="addLink" href="medi/mediadd.jsp?petId=<%= (pets != null && !pets.isEmpty()) ? pets.get(0).getPetId() : 1 %>">
+        추가하기
       </a>
     </p>
   </div>
@@ -119,7 +119,7 @@
     const link = document.getElementById('addLink');
     if (select && link) {
       select.addEventListener('change', () => {
-        link.href = 'mediadd.jsp?petId=' + select.value;
+        link.href = 'medi/mediadd.jsp?petId=' + select.value;
       });
     }
 
